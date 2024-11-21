@@ -191,7 +191,7 @@ const Payment = () => {
             </p>
             <div className="flex gap-3 items-center">
               <p
-                className="text-white bg-red-500 py-3 cursor-pointer"
+                className="text-white bg-[#F13A2E] py-3 cursor-pointer"
                 onClick={toggleSaldo}
               >
                 {showBalance ? "Tutup Saldo" : "Lihat Saldo"}
@@ -216,9 +216,9 @@ const Payment = () => {
                 <div className='w-full space-y-5'>
                   <InputField 
                     name='service_tariff'
-                    type='number'
+                    type='text'
                     icon={FaMoneyBill }
-                    value={selectedService?.service_tariff}
+                    value={formatRupiah(selectedService?.service_tariff)}
                   />
                   <button
                     onClick={() => setShowModalAlert(!showModalAlert)}

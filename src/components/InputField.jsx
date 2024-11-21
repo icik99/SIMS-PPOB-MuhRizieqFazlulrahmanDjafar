@@ -33,7 +33,7 @@ const InputField = ({
       </div>
       
       {errorMessage && (
-        <p className="text-red-500 text-sm">{errorMessage}</p>
+        <p className="text-red-500 text-sm font-medium">* {errorMessage}</p>
       )}
     </div>
   );

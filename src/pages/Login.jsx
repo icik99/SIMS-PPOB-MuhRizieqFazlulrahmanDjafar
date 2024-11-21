@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import InputField from "../components/InputField";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { CiLock } from "react-icons/ci";
@@ -55,7 +55,7 @@ const Login = () => {
   return (
     <>
       <div className="bg-white min-h-screen w-full  flex  items-center fixed">
-        <div className="bg-white  px-20  w-full mx-14">
+        <div className="bg-white  lg:px-20  w-full mx-14">
           <div className="flex items-center justify-center gap-4 font-semibold text-2xl mb-6">
             <img src="/assets/icons/Logo.png" alt="Logo" loading="lazy" className="w-8 h-8" />
             <p>SIMS PPOB</p>
@@ -73,6 +73,11 @@ const Login = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 icon={MdOutlineAlternateEmail}
+                errorMessage={
+                  formik.touched.email && formik.errors.email
+                    ? formik.errors.email
+                    : null
+                }
               />
             </div>
             <div>
@@ -101,12 +106,12 @@ const Login = () => {
           </form>
           <p className="text-center text-sm mt-4">
             belum punya akun? registrasi {" "}
-            <a
-              href="/register"
+            <Link
+              to="/register"
               className="text-red-500 hover:underline font-bold"
             >
               di sini
-            </a>
+            </Link>
           </p>
         </div>
         <div className="hidden lg:block w-full h-screen">

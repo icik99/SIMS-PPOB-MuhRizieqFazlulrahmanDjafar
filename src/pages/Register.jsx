@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import InputField from "../components/InputField";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { BsPerson } from "react-icons/bs";
@@ -165,12 +165,12 @@ const Register = () => {
           </form>
           <p className="text-center text-sm mt-4">
             Sudah punya akun? Login {" "}
-            <a
-              href="/login"
+            <Link
+              to="/login"
               className="text-red-500 hover:underline font-bold"
             >
               di sini
-            </a>
+            </Link>
           </p>
         </div>
         <div className="hidden lg:block w-full">

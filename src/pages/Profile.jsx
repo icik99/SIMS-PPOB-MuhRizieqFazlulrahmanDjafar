@@ -135,9 +135,9 @@ const Profile = () => {
                 />
                 <label
                   htmlFor="upload-input"
-                  className="absolute bottom-0 right-0 bg-white p-1 rounded-full shadow cursor-pointer"
+                  className="absolute bottom-0 right-0 bg-white p-2 rounded-full shadow cursor-pointer"
                 >
-                  <RiPencilFill className="text-lg text-gray-500" />
+                  <RiPencilFill className="text-sm text-gray-500" />
                 </label>
                 <input
                   id="upload-input"

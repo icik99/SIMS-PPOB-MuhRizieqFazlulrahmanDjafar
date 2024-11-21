@@ -87,7 +87,7 @@ const TransactionHistory = () => {
             </p>
             <div className="flex gap-3 items-center">
               <p
-                className="text-white bg-red-500 py-3 cursor-pointer"
+                className="text-white bg-[#F13A2E] py-3 cursor-pointer"
                 onClick={toggleSaldo}
               >
                 {showBalance ? "Tutup Saldo" : "Lihat Saldo"}

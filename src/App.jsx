@@ -17,11 +17,47 @@ function App() {
       position="bottom-left"
       reverseOrder={false}
       toastOptions={{
-        className: '',
-        style: {
-          border: '1px solid #A02334',
-          padding: '8px 16px',
-          color: '#A02334',
+        success: {
+          style: {
+            background: '#A02334',
+            color: 'white',
+            fontWeight: '500',
+            border: '1px solid',
+            padding: '8px 16px' ,
+            fontSize: '12px',
+          },
+          iconTheme: {
+            primary: 'white',
+            secondary: 'red',
+          },
+        },
+        error: {
+          style: {
+            background: '#A02334',
+            color: 'white',
+            fontWeight: '500',
+            border: '1px solid',
+            padding: '8px 16px',
+            fontSize: '12px',
+          },
+          iconTheme: {
+            primary: 'white',
+            secondary: 'red',
+          },
+        },
+        loading: {
+          style: {
+            background: '#A02334',
+            color: 'white',
+            fontWeight: '500',
+            border: '1px solid',
+            padding: '8px 16px' ,
+            fontSize: '12px',
+          },
+          iconTheme: {
+            primary: 'white',
+            secondary: 'white',
+          },
         },
       }}
       />
