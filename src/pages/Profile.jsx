@@ -11,15 +11,12 @@ import { MdOutlineAlternateEmail } from "react-icons/md";
 import { BsPerson } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { IoPencil } from "react-icons/io5";
 import { RiPencilFill } from "react-icons/ri";
 
 const Profile = () => {
   const [dataProfile, setDataProfile] = useState([]);
   const [editTogle, setEditTogle] = useState(false);
   const [refresh, setRefresh] = useState(false);
-  const [uploadImage, setUploadImage] = useState("");
-  const [viewImage, setViewImage] = useState("");
   const navigate = useNavigate();
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -27,7 +24,7 @@ const Profile = () => {
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
-      const fileSizeLimit = 100 * 1024; // 100 KB
+      const fileSizeLimit = 100 * 1024; 
       const allowedFormats = ["image/jpeg", "image/jpg", "image/png"];
 
       if (file.size > fileSizeLimit) {
@@ -59,7 +56,6 @@ const Profile = () => {
         loading: "Uploading Image...",
         success: (res) => {
           if (res.status === 0) {
-            console.log(res);
             return res.message;
           }
         },
@@ -71,9 +67,10 @@ const Profile = () => {
   };
 
   const profilePicture =
-    selectedImage ||
-    dataProfile.profile_image ||
-    "/assets/others/profilePhoto.png";
+  selectedImage ||
+  (dataProfile.profile_image && !dataProfile.profile_image.includes('null') ? dataProfile.profile_image : "/assets/others/profilePhoto.png");
+
+
 
   const getDataProfile = async () => {
     try {
@@ -82,6 +79,7 @@ const Profile = () => {
       formik.setValues(res.data);
     } catch (error) {}
   };
+
 
   const handleLogout = async () => {
     localStorage.removeItem("token");
@@ -95,7 +93,6 @@ const Profile = () => {
       const payload = {
         first_name: values.first_name,
         last_name: values.last_name,
-        email: values.email,
       };
 
       try {

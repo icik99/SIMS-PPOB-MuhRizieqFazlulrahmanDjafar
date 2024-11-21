@@ -1,53 +1,27 @@
 import React, { useEffect, useState } from 'react'
-import { MdOutlineRemoveRedEye } from 'react-icons/md'
 import Layout from '../components/Layout'
 import { getBalance, getProfile, topUp, transaction } from '../services/apiService'
 import InputField from "../components/InputField";
 import { FaMoneyBill } from 'react-icons/fa';
-import * as Yup from "yup";
 import { useFormik } from 'formik';
 import toast from 'react-hot-toast';
 import Modal from '../components/ModalAlert';
 import { FaCircleCheck } from 'react-icons/fa6';
 import { IoIosCloseCircle } from 'react-icons/io';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link,  useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import ProfileBalanceCard from '../components/ProfileBalanceCard';
 
 const Payment = () => {
-  const [dataProfile, setDataProfile] = useState([])
-  const [dataBalance, setDataBalance] = useState('')
-  const [showBalance, setShowBalance] = useState(false)
   const [showModalSuccess, setShowModalSuccess] = useState(false)
   const [showModalFailed, setShowModalFailed] = useState(false)
   const [showModalAlert, setShowModalAlert] = useState(false)
   const [refresh, setRefresh] = useState(false)
-  const navigate = useNavigate()
+
   const {id} = useParams()
   const services = useSelector((state) => state.services.services);
-
   const selectedService = services.find(service => service.service_code === id);
 
-  const getDataProfile = async () => {
-    try {
-      const res = await getProfile()
-      setDataProfile(res.data)
-    } catch (error) {
-      
-    }
-  }
-
-  const getDataBalance = async () => {
-    try {
-      const res = await getBalance()
-      setDataBalance(res.data.balance)
-    } catch (error) {
-      
-    }
-  }
-
-  const toggleSaldo = () => {
-    setShowBalance(prev => !prev)
-  }
 
   const formik = useFormik({
     initialValues: {
@@ -94,8 +68,6 @@ const Payment = () => {
   }
   
   useEffect(() => {
-    getDataProfile()
-    getDataBalance()
     setRefresh(false)
   }, [refresh])
   return (
@@ -166,43 +138,8 @@ const Payment = () => {
           }
       />
       <Layout>
-      <section className="flex-row items-center lg:flex mb-10">
-          <div className="w-full mb-4 ">
-            <img
-              src={dataProfile?.profile_image}
-              alt=""
-              loading="lazy"
-              className="mb-4 border rounded-full w-[90px] h-[90px] object-cover"
-            />
-            <p className="text-gray-500 font-medium text-lg mb-1">
-              Selamat datang,
-            </p>
-            <p className="font-medium text-2xl">
-              {dataProfile.first_name} {dataProfile.last_name}
-            </p>
-          </div>
-          <div
-            className="space-y-6 p-6 rounded-lg bg-cover bg-center w-full"
-            style={{ backgroundImage: "url('/assets/others/bgSaldo.png')" }}
-          >
-            <p className="text-white font-semibold">Saldo Anda</p>
-            <p className="text-2xl text-white font-bold">
-              {showBalance ? `${formatRupiah(dataBalance)}` : "Rp ••••••••"}
-            </p>
-            <div className="flex gap-3 items-center">
-              <p
-                className="text-white bg-[#F13A2E] py-3 cursor-pointer"
-                onClick={toggleSaldo}
-              >
-                {showBalance ? "Tutup Saldo" : "Lihat Saldo"}
-              </p>
-              <MdOutlineRemoveRedEye
-                className="text-white cursor-pointer"
-                onClick={toggleSaldo}
-              />
-            </div>
-          </div>
-        </section>
+          <ProfileBalanceCard />
+
           <section>
             <div className='w-full mb-5'>
               <p className='text-gray-500 font-medium text mb-4'>Pembayaran</p>

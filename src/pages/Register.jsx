@@ -48,7 +48,7 @@ const Register = () => {
             success: (res) => {
               if (res.status === 0) {
                 navigate("/login")
-                return res.response.data.message
+                return res.message
               }
             },
             error: (err) => {
@@ -57,7 +57,6 @@ const Register = () => {
           }
         )
       } catch (error) {
-        
       }
     },
   });

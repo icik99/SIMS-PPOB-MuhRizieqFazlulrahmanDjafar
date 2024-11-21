@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "https://take-home-test-api.nutech-integrasi.com";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const apiClient = axios.create({
   baseURL: apiUrl,

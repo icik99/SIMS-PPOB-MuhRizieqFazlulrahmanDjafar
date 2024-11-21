@@ -5,19 +5,19 @@ const SlideBanner = ({ dataBanner }) => {
   return (
     <section>
       <Swiper
-        spaceBetween={10} // Menambah jarak antar slide
-        slidesPerView={4} // Default 4 slide per view
+        spaceBetween={10} 
+        slidesPerView={4} 
         loop={true}
         grabCursor={true}
         breakpoints={{
           1024: {
-            slidesPerView: 4, // 4 slides pada layar besar
+            slidesPerView: 4, 
           },
           768: {
-            slidesPerView: 3, // 3 slides pada tablet
+            slidesPerView: 3, 
           },
           414: {
-            slidesPerView: 2, // 1 slide pada layar kecil
+            slidesPerView: 2, 
           },
         }}
       >
@@ -28,7 +28,7 @@ const SlideBanner = ({ dataBanner }) => {
                 src={item?.banner_image}
                 alt={item?.banner_name}
                 loading="lazy"
-                className="w-full h-auto max-w-[270px] mb-2 rounded-md object-cover" // Mengatur gambar agar responsif
+                className="w-full h-auto max-w-[270px] mb-2 rounded-md object-cover" 
               />
             </div>
           </SwiperSlide>
