@@ -77,7 +77,7 @@ const Dashboard = () => {
               src={dataProfile?.profile_image}
               alt=""
               loading="lazy"
-              className="mb-4 border rounded-full w-[90px] h-[90px] object-contain"
+              className="mb-4 border rounded-full w-[90px] h-[90px] object-cover"
             />
             <p className="text-gray-500 font-medium text-lg mb-1">
               Selamat datang,

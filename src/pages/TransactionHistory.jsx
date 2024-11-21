@@ -68,7 +68,7 @@ const TransactionHistory = () => {
               src={dataProfile?.profile_image}
               alt=""
               loading="lazy"
-              className="mb-4 border rounded-full w-[90px] h-[90px] object-contain"
+              className="mb-4 border rounded-full w-[90px] h-[90px] object-cover"
             />
             <p className="text-gray-500 font-medium text-lg mb-1">
               Selamat datang,
@@ -115,8 +115,7 @@ const TransactionHistory = () => {
                               : "text-red-400"
                           } font-bold text-lg`}
                         >
-                          {item?.transaction_type === "TOPUP" ? "+" : "-"} Rp
-                          10.0000
+                          {item?.transaction_type === "TOPUP" ? "+" : "-"} {formatRupiah(item?.total_amount)}
                         </p>
                         <p className="text-gray-400 text-xs">
                           {moment(item?.created_on).format(
