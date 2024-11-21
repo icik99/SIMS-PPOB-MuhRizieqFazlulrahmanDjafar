@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import { MdOutlineRemoveRedEye } from 'react-icons/md';
 import { getBalance, getProfile } from '../services/apiService';
 import { formatRupiah } from '../utils/formatRupiah';
+import LoadingPage from './LoadingPage';
 
 function ProfileBalanceCard() {
-  const [dataProfile, setDataProfile] = useState(null);
-  const [dataBalance, setDataBalance] = useState(null);
+  const [dataProfile, setDataProfile] = useState([]);
+  const [dataBalance, setDataBalance] = useState([]);
   const [showBalance, setShowBalance] = useState(false);
 
   const getDataProfile = async () => {
@@ -32,6 +33,14 @@ function ProfileBalanceCard() {
     getDataProfile();
     getDataBalance();
   }, []);
+
+  if (dataProfile.length === 0 || dataBalance.length === 0){
+    return(
+      <div className='flex items-center justify-center py-5 px-10 border rounded-lg'>
+        <p>Loading Components...</p>
+      </div>
+    )
+  }
 
   return (
     <section className="flex-row items-end lg:flex mb-5 px-10 lg:px-0">

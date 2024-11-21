@@ -2,6 +2,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 const SlideBanner = ({ dataBanner }) => {
+
+  if (dataBanner.length === 0){
+    return(
+      <div className='flex items-center justify-center py-5 px-10 border rounded-lg'>
+        <p>Loading Components...</p>
+      </div>
+    )
+  }
+  
   return (
     <section>
       <Swiper

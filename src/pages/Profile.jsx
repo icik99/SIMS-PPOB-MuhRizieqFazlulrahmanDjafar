@@ -12,6 +12,7 @@ import { BsPerson } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { RiPencilFill } from "react-icons/ri";
+import LoadingPage from "../components/LoadingPage";
 
 const Profile = () => {
   const [dataProfile, setDataProfile] = useState([]);
@@ -118,6 +119,11 @@ const Profile = () => {
     setRefresh(false);
   }, [refresh]);
 
+  if (dataProfile.length === 0){
+    return(
+      <LoadingPage />
+    )
+  }
   return (
     <>
       <Layout>

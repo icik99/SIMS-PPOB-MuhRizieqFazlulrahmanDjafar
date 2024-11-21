@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setServices } from "../redux/serviceSlice";
 import ProfileBalanceCard from "../components/ProfileBalanceCard";
+import LoadingPage from "../components/LoadingPage";
 
 const Dashboard = () => {
   const [dataServices, setDataServices] = useState([]);
@@ -37,13 +38,19 @@ const Dashboard = () => {
     getDataServices();
     getDataBanner();
   }, []);
+
+  if (dataBanner.length === 0 || dataServices.length === 0){
+    return(
+      <LoadingPage />
+    )
+  }
   return (
     <>
       <Layout>
         
         <ProfileBalanceCard />
 
-        <section className="mb-10">
+        <section className="mb-10 mt-10">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-12 gap-6">
             {Object.values(dataServices).map((item, idx) => (
               <Link

@@ -12,7 +12,7 @@ const Navbar = () => {
     <nav className="bg-white shadow-md w-full fixed top-0 z-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-40 flex items-center justify-between h-16">
         <Link to="/" className="flex items-center">
-          <img src="/assets/icons/Logo.png" alt="Logo" className="h-8 w-auto" />
+          <img src="/assets/icons/Logo.png" alt="Logo" className="h-8 w-auto" loading="lazy" />
           <span className="ml-3 text-lg sm:text-xl font-bold text-gray-800">
             SIMS PPOB
           </span>

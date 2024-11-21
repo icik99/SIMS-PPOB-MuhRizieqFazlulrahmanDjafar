@@ -8,9 +8,10 @@ import toast from 'react-hot-toast';
 import Modal from '../components/ModalAlert';
 import { FaCircleCheck } from 'react-icons/fa6';
 import { IoIosCloseCircle } from 'react-icons/io';
-import { Link,  useParams } from 'react-router-dom';
+import { Link,  useNavigate,  useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileBalanceCard from '../components/ProfileBalanceCard';
+import LoadingPage from '../components/LoadingPage';
 
 const Payment = () => {
   const [showModalSuccess, setShowModalSuccess] = useState(false)
@@ -21,7 +22,7 @@ const Payment = () => {
   const {id} = useParams()
   const services = useSelector((state) => state.services.services);
   const selectedService = services.find(service => service.service_code === id);
-
+  const navigate = useNavigate()
 
   const formik = useFormik({
     initialValues: {
@@ -69,7 +70,12 @@ const Payment = () => {
   
   useEffect(() => {
     setRefresh(false)
+    if(!selectedService) {
+      navigate('/')
+      toast.error('Sesi anda habis, beralih kembali ke halaman utama')
+    }
   }, [refresh])
+
   return (
     <>
       <Modal 

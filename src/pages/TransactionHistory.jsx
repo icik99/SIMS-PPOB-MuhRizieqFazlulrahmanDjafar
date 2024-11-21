@@ -6,6 +6,7 @@ import {
 import moment from "moment";
 import ProfileBalanceCard from "../components/ProfileBalanceCard";
 import { formatRupiah } from "../utils/formatRupiah";
+import LoadingPage from "../components/LoadingPage";
 
 const TransactionHistory = () => {
   const [dataHistoryTransaction, setDataHistoryTransaction] = useState([]);
@@ -26,6 +27,12 @@ const TransactionHistory = () => {
   useEffect(() => {
     getDataHistoryTransaction();
   }, [offset]);
+
+  if (dataHistoryTransaction.length === 0){
+    return(
+      <LoadingPage />
+    )
+  }
 
   return (
     <>
