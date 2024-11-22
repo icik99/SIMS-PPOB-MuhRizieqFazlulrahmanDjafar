@@ -25,7 +25,7 @@ const SlideBanner = ({ dataBanner }) => {
           768: {
             slidesPerView: 3, 
           },
-          414: {
+          375: {
             slidesPerView: 2, 
           },
         }}

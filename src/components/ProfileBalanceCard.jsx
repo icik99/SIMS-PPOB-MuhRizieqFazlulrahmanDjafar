@@ -43,20 +43,22 @@ function ProfileBalanceCard() {
   }
 
   return (
-    <section className="flex-row items-end lg:flex mb-8 px-10 lg:px-0">
-      <div className="w-full mb-3 md:mb-0">
-        <img
-          src={
-            dataProfile?.profile_image && !dataProfile.profile_image.includes('null')
-              ? dataProfile.profile_image
-              : "/assets/others/profilePhoto.png"
-          }
-          alt="Profile"
-          loading="lazy"
-          className="mb-4 border rounded-full w-[90px] h-[90px] object-cover"
-        />
-        <p className="text-gray-500 font-medium text-lg">Selamat datang,</p>
-        <p className="font-medium text-2xl">
+    <section className="flex-row items-end lg:flex mb-8 justify-center ">
+      <div className="w-full mb-3 md:mb-0 border-2 py-2 rounded-md lg:border-none">
+        <div className='flex items-center justify-center lg:justify-start'>
+          <img
+            src={
+              dataProfile?.profile_image && !dataProfile.profile_image.includes('null')
+                ? dataProfile.profile_image
+                : "/assets/others/profilePhoto.png"
+            }
+            alt="Profile"
+            loading="lazy"
+            className="mb-4 border rounded-full w-[90px] h-[90px] object-cover"
+          />
+        </div>
+        <p className="text-gray-500 font-medium text-center lg:text-left text-lg">Selamat datang,</p>
+        <p className="font-medium text-2xl text-center lg:text-left">
           {dataProfile?.first_name} {dataProfile?.last_name}
         </p>
       </div>
