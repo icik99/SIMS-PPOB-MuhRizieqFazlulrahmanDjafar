@@ -28,11 +28,6 @@ const TransactionHistory = () => {
     getDataHistoryTransaction();
   }, [offset]);
 
-  if (dataHistoryTransaction.length === 0){
-    return(
-      <LoadingPage />
-    )
-  }
 
   return (
     <>
