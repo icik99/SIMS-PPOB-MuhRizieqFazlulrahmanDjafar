@@ -43,8 +43,8 @@ function ProfileBalanceCard() {
   }
 
   return (
-    <section className="flex-row items-end lg:flex mb-5 px-10 lg:px-0">
-      <div className="w-full ">
+    <section className="flex-row items-end lg:flex mb-8 px-10 lg:px-0">
+      <div className="w-full mb-3 md:mb-0">
         <img
           src={
             dataProfile?.profile_image && !dataProfile.profile_image.includes('null')
@@ -70,7 +70,7 @@ function ProfileBalanceCard() {
         </p>
         <div className="flex gap-3 items-center">
           <p
-            className="text-white bg-[#F13A2E] py-3 cursor-pointer"
+            className="text-white bg-[#F13A2E]  cursor-pointer"
             onClick={toggleSaldo}
           >
             {showBalance ? "Tutup Saldo" : "Lihat Saldo"}

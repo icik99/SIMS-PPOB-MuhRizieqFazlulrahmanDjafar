@@ -50,8 +50,8 @@ const Dashboard = () => {
         
         <ProfileBalanceCard />
 
-        <section className="mb-10 mt-10">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-12 gap-6">
+        <section className="mb-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-12 gap-4">
             {Object.values(dataServices).map((item, idx) => (
               <Link
                 to={`/payment/${item.service_code}`}
@@ -63,7 +63,7 @@ const Dashboard = () => {
                     src={item?.service_icon}
                     alt={item?.service_code}
                     loading="lazy"
-                    className="w-[90px] h-[90px] mb-2"
+                    className="max-w-[90px]  mb-2"
                   />
                 </div>
                 <p className="text-center line-clamp-2 text-xs">
