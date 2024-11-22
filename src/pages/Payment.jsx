@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
-import { getBalance, getProfile, topUp, transaction } from '../services/apiService'
+import { transaction } from '../services/apiService'
 import InputField from "../components/InputField";
 import { FaMoneyBill } from 'react-icons/fa';
 import { useFormik } from 'formik';
@@ -11,7 +11,6 @@ import { IoIosCloseCircle } from 'react-icons/io';
 import { Link,  useNavigate,  useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileBalanceCard from '../components/ProfileBalanceCard';
-import LoadingPage from '../components/LoadingPage';
 
 const Payment = () => {
   const [showModalSuccess, setShowModalSuccess] = useState(false)

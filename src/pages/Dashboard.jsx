@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import {
-  getBalance,
   getBanner,
-  getProfile,
   getServices,
 } from "../services/apiService";
 import SlideBanner from "../components/SlideBanner";

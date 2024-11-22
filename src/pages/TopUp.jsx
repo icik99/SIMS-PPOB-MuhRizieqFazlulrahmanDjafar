@@ -36,7 +36,8 @@ const TopUp = () => {
       };
 
       try {
-        await toast.promise(topUp(payload), {
+        await toast.promise(
+          topUp(payload), {
           loading: "Processing...",
           success: (res) => {
             if (res.status === 0) {

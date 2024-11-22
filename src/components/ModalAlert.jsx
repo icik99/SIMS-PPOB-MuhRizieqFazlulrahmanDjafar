@@ -1,5 +1,3 @@
-import { IoClose } from 'react-icons/io5'
-
 const Modal = ({activeModal, title, buttonClose, width, content}) => {
 
     return (

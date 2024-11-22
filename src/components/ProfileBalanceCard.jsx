@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { MdOutlineRemoveRedEye } from 'react-icons/md';
 import { getBalance, getProfile } from '../services/apiService';
 import { formatRupiah } from '../utils/formatRupiah';
-import LoadingPage from './LoadingPage';
 
 function ProfileBalanceCard() {
   const [dataProfile, setDataProfile] = useState([]);
