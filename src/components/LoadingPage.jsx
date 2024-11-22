@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const LoadingPage = () => {
+  const navigate = useNavigate()
+    
+    useEffect(() => {
+        if (!localStorage.getItem('token')){
+            navigate('/login')
+        }
+    })
   return (
     <div className="w-full h-screen flex items-center justify-center">
       <div className="flex flex-col items-center">
